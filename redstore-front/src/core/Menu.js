@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
+import { isAuthenticated, signout } from "../auth";
 
 // active style
 const isActive = (history, path) => {
@@ -20,12 +21,16 @@ const Menu = ({ history }) => {
       setToggle("hide");
     }
   };
+  let user = "";
+  if (isAuthenticated()) {
+    user = isAuthenticated().user;
+  }
 
   return (
     <div className="container">
       <div className="navbar">
         <div className="logo">
-          <img src="images/logo.png" width="125" />
+          <img src="/images/logo.png" width="125" />
         </div>
         <nav>
           <ul className={toggle}>
@@ -35,35 +40,70 @@ const Menu = ({ history }) => {
               </Link>
             </li>
             <li>
-              <Link
-                to="/api/products"
-                style={isActive(history, "/api/products")}
-              >
+              <Link to="/api/products" style={isActive(history, "/products")}>
                 Products
               </Link>
             </li>
-            <li>
-              <Link to="/signin" style={isActive(history, "/signin")}>
-                Signin
-              </Link>
-            </li>
-            <li>
-              <Link to="/signup" style={isActive(history, "/signup")}>
-                Signup
-              </Link>
-            </li>
+            {user.role === 0 && (
+              <li>
+                <Link
+                  to="/user/dashboard"
+                  style={isActive(history, "/user/dashboard")}
+                >
+                  Dashboard
+                </Link>
+              </li>
+            )}
+            {user.role === 1 && (
+              <li>
+                <Link
+                  to="/admin/dashboard"
+                  style={isActive(history, "/admin/dashboard")}
+                >
+                  Admin Dashboard
+                </Link>
+              </li>
+            )}
 
+            {!isAuthenticated() && (
+              <>
+                <li>
+                  <Link to="/signin" style={isActive(history, "/signin")}>
+                    Signin
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/signup" style={isActive(history, "/signup")}>
+                    Signup
+                  </Link>
+                </li>
+              </>
+            )}
+            {isAuthenticated() && (
+              <li>
+                <span
+                  onClick={() =>
+                    signout(() => {
+                      history.push("/");
+                    })
+                  }
+                  style={{ cursor: "pointer", color: "red" }}
+                >
+                  Sign out
+                </span>
+              </li>
+            )}
             <li>
-              <a href="#">Account</a>
+              <a href="#">Cart</a>
             </li>
           </ul>
           <img
-            src="images/cart.png"
+            src="/images/cart.png"
             style={{ width: "30px", height: "30px" }}
           />
           <img
             className="menu-icon"
-            src="images/menu.png"
+            src="/images/menu.png"
             onClick={menuToggle}
           />
         </nav>
