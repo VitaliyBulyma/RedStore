@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from './Layout';
 import { read, listRelated } from './apiCore';
 import Card from './Card';
+import Menu from '../core/Menu';
 
 const Product = props => {
     const [product, setProduct] = useState({});
@@ -32,11 +33,8 @@ const Product = props => {
     }, [props]);
 
     return (
-        <Layout
-            title={product && product.name}
-            description={product && product.description && product.description.substring(0, 40)}
-            className="container-fluid"
-        >
+        <>
+        <Menu />
             <div className="row">
                 <div className="col-8">
                     {product && product.description && <Card product={product} showViewProductButton={false} />}
@@ -51,7 +49,7 @@ const Product = props => {
                     ))}
                 </div>
             </div>
-        </Layout>
+        </>
     );
 };
 

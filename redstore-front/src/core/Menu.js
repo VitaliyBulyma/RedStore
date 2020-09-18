@@ -40,8 +40,8 @@ const Menu = ({ history }) => {
               </Link>
             </li>
             <li>
-              <Link to="/api/products" style={isActive(history, "/products")}>
-                Products
+              <Link to="/shop" style={isActive(history, "/shop")}>
+                Shop
               </Link>
             </li>
             {user.role === 0 && (
