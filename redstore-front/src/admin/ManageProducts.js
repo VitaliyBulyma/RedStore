@@ -3,6 +3,7 @@ import Layout from "../core/Layout";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getProducts, deleteProduct } from "./apiAdmin";
+import Menu from '../core/Menu';
 
 const ManageProducts = () => {
     const [products, setProducts] = useState([]);
@@ -34,11 +35,8 @@ const ManageProducts = () => {
     }, []);
 
     return (
-        <Layout
-            title="Manage Products"
-            description="Perform CRUD on products"
-            className="container-fluid"
-        >
+<>
+<Menu />
             <div className="row">
                 <div className="col-12">
                     <h2 className="text-center">
@@ -69,7 +67,7 @@ const ManageProducts = () => {
                     <br />
                 </div>
             </div>
-        </Layout>
+</>
     );
 };
 

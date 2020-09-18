@@ -3,6 +3,7 @@ import Layout from '../core/Layout';
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 import { createProduct, getCategories } from './apiAdmin';
+import Menu from '../core/Menu';
 
 const AddProduct = () => {
     const [values, setValues] = useState({
@@ -86,11 +87,12 @@ const AddProduct = () => {
 
     const newPostForm = () => (
         <form className="mb-3" onSubmit={clickSubmit}>
-            <h4>Post Photo</h4>
-            <div className="form-group">
-                <label className="btn btn-secondary">
-                    <input onChange={handleChange('photo')} type="file" name="photo" accept="image/*" />
-                </label>
+        
+            
+            <div className="form-group"> 
+                     <label htmlFor="file"> Click to Upload Photo </label>      
+                    <input onChange={handleChange('photo')} type="file" id="file" name="photo" accept="image/*" />
+                 
             </div>
 
             <div className="form-group">
@@ -159,7 +161,8 @@ const AddProduct = () => {
         );
 
     return (
-        <Layout title="Add a new product" description={`G'day ${user.name}, ready to add a new product?`}>
+       <>
+       <Menu />
             <div className="row">
                 <div className="col-md-8 offset-md-2">
                     {showLoading()}
@@ -168,7 +171,7 @@ const AddProduct = () => {
                     {newPostForm()}
                 </div>
             </div>
-        </Layout>
+</>
     );
 };
 
