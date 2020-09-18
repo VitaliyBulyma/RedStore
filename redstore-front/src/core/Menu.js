@@ -22,7 +22,7 @@ const Menu = ({ history }) => {
   };
 
   return (
-    
+    <div className="container">
       <div className="navbar">
         <div className="logo">
           <img src="images/logo.png" width="125" />
@@ -68,7 +68,7 @@ const Menu = ({ history }) => {
           />
         </nav>
       </div>
-    
+    </div>
   );
 };
 
