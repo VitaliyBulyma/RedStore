@@ -4,6 +4,9 @@ import Hero from "./Hero";
 import { API } from "../config";
 import { getProducts } from "./apiCore";
 import Card from "./Card";
+
+
+
 const Home = () => {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
@@ -38,6 +41,7 @@ const Home = () => {
       <div className="container">
         <Menu />
         <Hero />
+        
         <div class="categories">
       <div class="small-container">
         <div class="row">

@@ -21,7 +21,7 @@ const Card = ({
     return (
       showViewProductButton && (
         <Link to={`/product/${product._id}`} className="mr-2">
-          <button className="btn btn-outline-primary mt-2 mb-2 card-btn-1">View Product</button>
+          <button className="btn-card btn-outline-primary mt-2 mb-2 card-btn-1">View Product</button>
         </Link>
       )
     );
@@ -40,7 +40,7 @@ const Card = ({
   const showAddToCartBtn = showAddToCartButton => {
     return (
       showAddToCartButton && (
-        <button onClick={addToCart} className="btn btn-outline-warning mt-2 mb-2 card-btn-1  ">
+        <button onClick={addToCart} className="btn-card">
           Add to cart
         </button>
       )
@@ -99,16 +99,24 @@ const Card = ({
           {shouldRedirect(redirect)}
         <ShowImage item={product} url="product" />
     <h4>{product.name}</h4>
-    <div class="rating">
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star"></i>
-      <i class="fa fa-star-o"></i>
+    <div className="rating">
+      <i className="fa fa-star"></i>
+      <i className="fa fa-star"></i>
+      <i className="fa fa-star"></i>
+      <i className="fa fa-star"></i>
+      <i className="fa fa-star-o"></i>
     </div>
     <p>${product.price}</p>
-    {/* <p className="black-9">Category: {product.category && product.category.name}</p> */}
-    
+    <p className="black-9">Category: {product.category && product.category.name}</p>
+    <p className="black-8">Added {moment(product.createdAt).fromNow()}</p>
+        {showStock(product.quantity)} <br/>
+    {showViewButton(showViewProductButton)}
+
+{showAddToCartBtn(showAddToCartButton)}
+
+{showRemoveButton(showRemoveProductButton)}
+
+{showCartUpdateOptions(cartUpdate)}
   </div>
     
 
