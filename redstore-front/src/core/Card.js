@@ -93,7 +93,26 @@ const Card = ({
     );
   };
   return (
-    <div className="card ">
+    <>
+ 
+          <div class="col-4">
+          {shouldRedirect(redirect)}
+        <ShowImage item={product} url="product" />
+    <h4>{product.name}</h4>
+    <div class="rating">
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star-o"></i>
+    </div>
+    <p>${product.price}</p>
+    {/* <p className="black-9">Category: {product.category && product.category.name}</p> */}
+    
+  </div>
+    
+
+    {/* <div className="card ">
       <div className="card-header card-header-1 name ">{product.name}</div>
       <div className="card-body">
         {shouldRedirect(redirect)}
@@ -113,7 +132,8 @@ const Card = ({
 
         {showCartUpdateOptions(cartUpdate)}
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 

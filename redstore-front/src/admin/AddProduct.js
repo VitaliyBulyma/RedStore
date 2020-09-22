@@ -79,6 +79,8 @@ const AddProduct = () => {
                     price: '',
                     quantity: '',
                     loading: false,
+                    error:'',
+                    shipping:'',
                     createdProduct: data.name
                 });
             }

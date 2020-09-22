@@ -9,6 +9,7 @@ const AddCategory = () => {
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [catName, setCatName] = useState('');
 
   // destructure user and token from localStorage
   const { user, token } = isAuthenticated();
@@ -27,8 +28,11 @@ const AddCategory = () => {
       if (data.error) {
         setError(data.error);
       } else {
+        
         setError("");
         setSuccess(true);
+        setName("");
+        setCatName(data.data.name);
        
       }
     });
@@ -53,7 +57,7 @@ const AddCategory = () => {
 
   const showSuccess = () => {
     if (success) {
-      return <h3 className="text-success">Category {name} is created</h3>;
+      return <h3 className="text-success">Category {catName} is created</h3>;
     }
   };
 
