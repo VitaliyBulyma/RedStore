@@ -1,6 +1,8 @@
 # RedStore
 ## Converting static HTML/CSS/JavaScript site to dynamic MERN stack web application
 
+![Landing Page](screenshots/landing.jpg)
+
 The purpose of this project is to combine two separate projects I have completed earlier: 
 
 1. https://vitaliybulyma.github.io/eCommerce-website/index.html which is a static e-commerce web store (Design reference: [YouTube Channel](https://www.youtube.com/channel/UCkjoHfkLEy7ZT4bA2myJ8xA))
