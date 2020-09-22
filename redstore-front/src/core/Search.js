@@ -121,7 +121,7 @@ const Search = () => {
               ))}
             </select>
       <input onChange={handleChange("search")} placeholder="Search..."  type="search" />
-      <button className="nostyle"><i class="fa fa-search"></i></button>
+      <button className="nostyle"><i className="fa fa-search"></i></button>
     </form>
   );
   return (

@@ -40,11 +40,15 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         setData({ ...data, address: event.target.value });
     };
 
-    const getTotal = () => {
+    const getSubTotal = () => {
         return products.reduce((currentValue, nextValue) => {
             return currentValue + nextValue.count * nextValue.price;
         }, 0);
     };
+    const getTotal = ()=>{return getSubTotal()*1.13;};
+    const getTax = ()=>{return getTotal()-getSubTotal();};
+
+
 
     const showCheckout = () => {
         return isAuthenticated() ? (
@@ -77,7 +81,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                 // );
                 const paymentData = {
                     paymentMethodNonce: nonce,
-                    amount: getTotal(products)
+                    amount: getTotal(products).toFixed(2)
                 };
 
                 processPayment(userId, token, paymentData)
@@ -124,7 +128,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
         <div onBlur={() => setData({ ...data, error: '' })}>
             {data.clientToken !== null && products.length > 0 ? (
                 <div>
-                    <div className="gorm-group mb-3">
+                    {/* <div className="form-group mb-3">
                         <label className="text-muted">Delivery address:</label>
                         <textarea
                             onChange={handleAddress}
@@ -132,7 +136,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                             value={data.address}
                             placeholder="Type your delivery address here..."
                         />
-                    </div>
+                    </div> */}
 
                     <DropIn
                         options={{
@@ -143,7 +147,7 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
                         }}
                         onInstance={instance => (data.instance = instance)}
                     />
-                    <button onClick={buy} className="btn btn-success btn-block">
+                    <button onClick={buy} className="btn-card btn-success btn-block">
                         Pay
                     </button>
                 </div>
@@ -166,8 +170,11 @@ const Checkout = ({ products, setRun = f => f, run = undefined }) => {
     const showLoading = loading => loading && <h2 className="text-danger">Loading...</h2>;
 
     return (
-        <div>
-            <h2>Total: ${getTotal()}</h2>
+        <div className="col-2">
+            <p className="" style={{textAlign: "end"}}>Sub-Total: ${getSubTotal().toFixed(2)}</p>
+            <p className="" style={{textAlign: "end"}}>Tax(13%): ${getTax().toFixed(2)}</p>            
+            <p className="" style={{textAlign: "end"}}>Total: ${getTotal().toFixed(2)}</p>
+            <hr />
             {showLoading(data.loading)}
             {showSuccess(data.success)}
             {showError(data.error)}

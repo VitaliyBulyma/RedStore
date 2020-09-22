@@ -94,8 +94,10 @@ const Menu = ({ history }) => {
               </li>
             )}
             <li>
-              <a href="#">Cart</a>
-            </li>
+                  <Link to="/cart" style={isActive(history, "/cart")}>
+                    Cart
+                  </Link>
+                </li>
           </ul>
           <img
             src="/images/cart.png"
