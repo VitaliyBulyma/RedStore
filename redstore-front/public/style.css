@@ -121,6 +121,7 @@ col-1{
   color:black;
   padding: 8px 30px;
   margin: 10px 5px;
+  border: none;
   border-radius: 10px;
   transition: background 0.5s;
 }
@@ -133,6 +134,22 @@ col-1{
   border-radius: 10px;
   transition: background 0.5s;
 }
+.btn-action {
+  display: inline-block;
+  background: #1f7c7c;
+  color:white;
+  padding: 8px 30px;
+  margin: 10px 5px;
+  border: none;
+  border-radius: 5px;
+  transition: background 0.5s;
+  outline: none;
+}
+.btn-action:hover {
+transform: scale(1.1);
+  transition: background 0.5s;
+}
+
 .btn:hover {
   background: #563434;
 }
