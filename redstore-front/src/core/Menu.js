@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth";
+import {itemTotal} from '../core/cartHelpers'
 
 // active style
 const isActive = (history, path) => {
@@ -95,7 +96,7 @@ const Menu = ({ history }) => {
             )}
             <li>
                   <Link to="/cart" style={isActive(history, "/cart")}>
-                    Cart
+                    Cart <sup><small>{itemTotal()}</small></sup>
                   </Link>
                 </li>
           </ul>

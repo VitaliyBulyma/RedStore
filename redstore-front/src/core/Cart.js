@@ -1,59 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getCart } from "./cartHelpers";
-import Card from "./Card";
+import { getCart , addItem, updateItem, removeItem} from "./cartHelpers";
+import CartItem from "./Cart-item";
 import Checkout from "./Checkout";
 import Menu from "./Menu";
 import ShowImage from "./ShowImage";
 
+
 const Cart = () => {
   const [items, setItems] = useState([]);
   const [run, setRun] = useState(false);
+  
 
   useEffect(() => {
     setItems(getCart());
   }, [run]);
 
   const showItems = (items) => {
-    
+  
     return (
-      // <div>
-      //   <h2>Your cart has {`${items.length}`} items</h2>
-      //   <hr />
-      //   {items.map((product, i) => (
-      //     <Card
-      //       key={i}
-      //       product={product}
-      //       showAddToCartButton={false}
-      //       cartUpdate={true}
-      //       showRemoveProductButton={true}
-      //       setRun={setRun}
-      //       run={run}
-      //     />
-      //   ))}
-      // </div>
-      <>
+    <>
+      
         {items.map((product, i) => (
-          <>
-            <tr>
-              <td>
-                <div class="cart-info">
-                  <ShowImage item={product} url="product" />
-                  <div>
-                    <p>{product.name}</p>
-                    <small>Price: {product.price}</small>
-                    <br />
-                    <a href="">Remove</a>
-                  </div>
-                </div>
-              </td>
-              <td>
-                <input type="number" placeholder={product.count} />
-              </td>
-              <td>${product.price}</td>
-            </tr>
-          </>
+          <CartItem
+            key={i}
+            product={product}         
+            
+            setRun={setRun}
+            run={run}
+          />
         ))}
+       
+       
       </>
     );
   };
@@ -75,7 +53,7 @@ const Cart = () => {
               <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-                <th>Subtotal</th>
+                <th>Price</th>
               </tr>
             </thead>
             <tbody>
@@ -83,8 +61,7 @@ const Cart = () => {
             </tbody>
           </table>
           <div className="total-price">
-
-          <Checkout products={items} setRun={setRun} run={run} />
+            <Checkout products={items} setRun={setRun} run={run} />
           </div>
         </div>
       </div>
