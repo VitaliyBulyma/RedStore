@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { isAuthenticated, signout } from "../auth";
-import {itemTotal} from '../core/cartHelpers'
+import {itemTotal} from '../core/cartHelpers';
 
 // active style
 const isActive = (history, path) => {
@@ -31,7 +31,10 @@ const Menu = ({ history }) => {
     <div className="container">
       <div className="navbar">
         <div className="logo">
+        <Link to="/">
           <img src="/images/logo.png" width="125" />
+        </Link>
+          
         </div>
         <nav>
           <ul className={toggle}>

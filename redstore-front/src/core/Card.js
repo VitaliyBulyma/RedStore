@@ -95,7 +95,7 @@ const Card = ({
   return (
     <>
  
-          <div class="col-4">
+          <div className="col-4">
           {shouldRedirect(redirect)}
         <ShowImage item={product} url="product" />
     <h4>{product.name}</h4>

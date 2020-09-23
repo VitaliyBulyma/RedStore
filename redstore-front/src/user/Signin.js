@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import Menu from "../core/Menu";
 import { signin, authenticate, isAuthenticated } from "../auth";
 
 const Signin = () => {
   const [values, setValues] = useState({
-    email: "vitaliy_bulyma@yahoo.ca",
-    password: "password1",
+    email: "",
+    password: "",
     error: "",
     loading: false,
     redirectToReferrer: false,

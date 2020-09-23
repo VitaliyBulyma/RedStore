@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layout";
+
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import { getPurchaseHistory } from "./apiUser";
@@ -101,10 +101,10 @@ const Dashboard = () => {
     return (
         <>
         <Menu />
-        <div className="small-container">
-            <div className="row">
-                <div className="col-3">{userLinks()}</div>
-                <div className="col-9">
+        <div className="small-container ">
+            <div className="row top-align">
+                <div className="col-3 ">{userLinks()}</div>
+                <div className="col-9 ml-20">
                     {userInfo()}
                     {purchaseHistory(history)}
                 </div>

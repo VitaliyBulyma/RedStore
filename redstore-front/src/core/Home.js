@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Menu from "./Menu";
 import Hero from "./Hero";
-import { API } from "../config";
+import Testimonials from "./Testimonials";
+import Brands from "./Brands";
+import Offer from "./Offer";
+
 import { getProducts } from "./apiCore";
 import Card from "./Card";
-
-
 
 const Home = () => {
   const [productsBySell, setProductsBySell] = useState([]);
@@ -37,41 +38,49 @@ const Home = () => {
     loadProductsBySell();
   }, []);
   return (
+    <>
     <div className="header">
       <div className="container">
         <Menu />
         <Hero />
+</div>
+</div>
+<div className="small-container">
+        <div className="categories">
+          
+            <div className="row">
+              <div className="col-3">
+                <img src="images/category-1.jpg" alt="" />
+              </div>
+              <div className="col-3">
+                <img src="images/category-2.jpg" alt="" />
+              </div>
+              <div className="col-3">
+                <img src="images/category-3.jpg" alt="" />
+              </div>
+            </div>
+          </div>
         
-        <div class="categories">
-      <div class="small-container">
-        <div class="row">
-          <div class="col-3">
-            <img src="images/category-1.jpg" alt="" />
-          </div>
-          <div class="col-3">
-            <img src="images/category-2.jpg" alt="" />
-          </div>
-          <div class="col-3">
-            <img src="images/category-3.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-        <h2 className="title">Featured Product</h2>
+        <h2 className="title" id="featured">
+          Featured Product
+        </h2>
         <div className="row">
-                    {productsBySell.map((product, i) => (
-          <Card key={i} product={product} />
-        ))}
+          {productsBySell.map((product, i) => (
+            <Card key={i} product={product} />
+          ))}
         </div>
         <h2 className="title">Latest Products</h2>
         <div className="row">
-                    {productsByArrival.map((product, i) => (
-          <Card key={i} product={product} />
-        ))}
+          {productsByArrival.map((product, i) => (
+            <Card key={i} product={product} />
+          ))}
         </div>
-
-      </div>
-    </div>
+        </div>
+        <Offer />
+        <Testimonials />
+        <Brands/>
+      </>
+    
   );
 };
 

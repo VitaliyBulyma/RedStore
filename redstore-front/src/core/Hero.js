@@ -1,4 +1,5 @@
 import React from 'react';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 
 
 const Hero = ()=> (
@@ -12,7 +13,8 @@ const Hero = ()=> (
         Success is not always about greatness. It's about consistency.<br />
         Consistent hard work gains success. Greatness will come.
       </p>
-      <a className="btn" href="#">Explore Now &#8594;</a>
+      <AnchorLink className="btn" href='#featured'>Explore Now &#8594;</AnchorLink>
+      {/* <a className="btn" href="#featured">Explore Now &#8594;</a> */}
     </div>
     <div className="col-2">
       <img src="images/image1.png" alt="" />

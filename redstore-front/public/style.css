@@ -14,6 +14,9 @@
   outline: none;
   cursor: pointer;
 }
+.right{
+  float: right;
+}
 .ml-4{
   padding-left: 4px;
 }
@@ -114,6 +117,7 @@ col-1{
   margin: 30px 0;
   border-radius: 30px;
   transition: background 0.5s;
+  outline: none;
 }
 .btn-card {
   display: inline-block;
@@ -124,6 +128,7 @@ col-1{
   border: none;
   border-radius: 10px;
   transition: background 0.5s;
+  outline: none;
 }
 .btn-card:hover {
   display: inline-block;
@@ -172,6 +177,7 @@ transform: scale(1.1);
 }
 .col-3 img {
   width: 100%;
+  padding: 5px;
 }
 
 .small-container {
@@ -1023,3 +1029,28 @@ i{
 }
 
 /* End Single Product */
+
+/* Jumbotron */
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+  }
+}
+
+.jumbotron-fluid {
+  padding-right: 0;
+  padding-left: 0;
+  border-radius: 0;
+}
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
+}
+/* End Jumbotron */

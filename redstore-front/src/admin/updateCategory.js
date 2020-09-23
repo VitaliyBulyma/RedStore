@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Layout from "../core/Layout";
+
 import { isAuthenticated } from "../auth";
 import { Link, Redirect } from "react-router-dom";
 import { getCategory, updateCategory } from "./apiAdmin";
@@ -13,7 +13,7 @@ const UpdateCategory = ({ match }) => {
     formData: "",
   });
 
-  // destructure user and token from localStorage
+  // de-structure user and token from localStorage
   const { user, token } = isAuthenticated();
 
   const { name, error, redirectToProfile } = values;

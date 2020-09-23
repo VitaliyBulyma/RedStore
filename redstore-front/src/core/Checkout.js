@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getProducts, getBraintreeClientToken, processPayment, createOrder } from './apiCore';
 import { emptyCart } from './cartHelpers';
-import Card from './Card';
+
 import { isAuthenticated } from '../auth';
 import { Link } from 'react-router-dom';
 // import "braintree-web"; // not using this package

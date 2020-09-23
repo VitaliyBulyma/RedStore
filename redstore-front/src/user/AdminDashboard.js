@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../core/Layout";
+
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import Menu from '../core/Menu';
@@ -58,9 +58,9 @@ const AdminDashboard = () => {
         <>
         <Menu />
         <div className="small-container">
-            <div className="row">
+            <div className="row top-align">
             <div className="col-3">{adminLinks()}</div>
-                <div className="col-9">{adminInfo()}</div>
+                <div className="col-9 ml-20">{adminInfo()}</div>
             </div>
         </div>
         </>
